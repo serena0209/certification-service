@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serena | AI 應用規劃師備考顧問 × 企業管理專家</title>
+    <meta name="description" content="從零基礎到高分通過：用 AI 打造你的 iPAS 應用規劃師備考勝利路徑。Serena 結合 20 年企業管理實戰與 AI 應用思維，為您提供系統化備考解決方案。">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        itri: {
+                            blue: '#0077C8',
+                            green: '#00B388',
+                            orange: '#FF9D00',
+                            darkGray: '#2E3A46',
+                            slateGray: '#6B7C93',
+                            lightGray: '#F2F4F7',
+                            white: '#FFFFFF',
+                            skyBlue: '#E6F4FF',
+                            coolBlue: '#D0E8FF',
+                            mint: '#E6F7F1',
+                            softYellow: '#FFF5CC',
+                            lavender: '#EDE9FF',
+                            softCoral: '#FFE6E1',
+                        },
+                        tech: {
+                            blue: '#0077C8',
+                            purple: '#00B388',
+                            mint: '#00B388',
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'itri-gradient': 'linear-gradient(135deg, #0077C8 0%, #00B388 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles & Typography */
+        body {
+            background-color: #ffffff;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 10px 40px -10px rgba(0, 119, 200, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 119, 200, 0.15);
+            border-color: rgba(0, 179, 136, 0.3);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #0077C8, #00B388);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Custom Button Styles (Requirements #8) */
+        .btn-premium {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            color: #0077C8;
+            font-weight: 500;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            border: 1px solid transparent;
+            background-clip: padding-box;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        /* Gradient Border Setup */
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #0077C8, #00B388);
+            transition: all 0.3s ease;
+        }
+
+        .btn-premium .btn-text {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-premium .btn-hover-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00B388; /* ITRI Green */
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Hover State */
+        .btn-premium:hover {
+            box-shadow: 0 0 20px rgba(0, 179, 136, 0.4);
+            border-color: transparent;
+        }
+
+        .btn-premium:hover::before {
+            background: #00B388; /* Changes border to ITRI green conceptually by illuminating */
+            opacity: 0.5;
+        }
+
+        .btn-premium:hover .btn-text {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .btn-premium:hover .btn-hover-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typewriter Cursor */
+        .typewriter-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background-color: #0077C8;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom SVG Background grid */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 119, 200, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 119, 200, 0.05) 1px, transparent 1px);
+        }
+
+        /* Architecture Tree Node Connection */
+        .tree-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            width: 2px;
+            height: 24px;
+            background: linear-gradient(to bottom, #e2e8f0, transparent);
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tech-blue selection:text-white">
+
+    <!-- Background Canvas for Animations -->
+    <canvas id="techCanvas" class="fixed inset-0 pointer-events-none z-[-1] opacity-60"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="glass mx-4 mt-4 rounded-2xl px-6 py-4 flex justify-between items-center max-w-7xl xl:mx-auto">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tech-blue to-tech-purple flex items-center justify-center text-white font-bold text-xl group-hover:shadow-[0_0_15px_rgba(0,119,200,0.5)] transition-all">S</div>
+                <span class="font-bold text-xl tracking-wide text-slate-800">Serena</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-sm font-medium text-slate-600 hover:text-tech-blue transition-colors">關於 Serena</a>
+                <a href="#solutions" class="text-sm font-medium text-slate-600 hover:text-tech-blue transition-colors">備考解決方案</a>
+                <a href="#journey" class="text-sm font-medium text-slate-600 hover:text-tech-blue transition-colors">備考流程</a>
+                <a href="#insights" class="text-sm font-medium text-slate-600 hover:text-tech-blue transition-colors">技術觀點</a>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden md:block">
+                <a href="https://calendar.app.google/kVba3a9iryVbvhD77" target="_blank" rel="noopener noreferrer" class="btn-premium py-2 px-6">
+                    <span class="btn-text">預約諮詢</span>
+                    <span class="btn-hover-text">Status: Ready to Connect</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-600 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-4 right-4 glass rounded-2xl p-6 flex flex-col space-y-4 shadow-xl border border-white/50">
+            <a href="#about" class="text-base font-medium text-slate-800 hover:text-tech-blue mobile-link">關於 Serena</a>
+            <a href="#solutions" class="text-base font-medium text-slate-800 hover:text-tech-blue mobile-link">備考解決方案</a>
+            <a href="#journey" class="text-base font-medium text-slate-800 hover:text-tech-blue mobile-link">備考流程</a>
+            <a href="#insights" class="text-base font-medium text-slate-800 hover:text-tech-blue mobile-link">技術觀點</a>
+            <div class="pt-4 border-t border-slate-200">
+                <a href="https://calendar.app.google/kVba3a9iryVbvhD77" target="_blank" rel="noopener noreferrer" class="w-full text-center bg-tech-blue text-white py-3 rounded-xl font-medium shadow-md">立即預約諮詢</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-40 pb-20 lg:pt-52 lg:pb-32 px-4 overflow-hidden min-h-screen flex items-center">
+        <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent -z-10"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-[100px] -z-10 mix-blend-multiply"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-[100px] -z-10 mix-blend-multiply"></div>
+
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-7 space-y-8 relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-tech-blue text-sm font-medium mb-4 shadow-sm fade-up">
+                        <span class="w-2 h-2 rounded-full bg-tech-blue animate-pulse"></span>
+                        AI 應用規劃師備考顧問 × 企業管理專家
+                    </div>
+                    
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-slate-900 min-h-[120px] lg:min-h-[160px]">
+                        <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl fade-up" style="transition-delay: 200ms;">
+                        結合 20 年上市科技公司管理實戰經驗，以數據為依據、AI 為助力，為您打造從零基礎到高分通過的個人化學習路徑，將考試成果轉化為職場真實競爭力。
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4 fade-up" style="transition-delay: 400ms;">
+                        <a href="https://calendar.app.google/kVba3a9iryVbvhD77" target="_blank" rel="noopener noreferrer" class="btn-premium h-14 text-lg w-full sm:w-auto shadow-[0_10px_20px_rgba(0,119,200,0.1)] hover:shadow-none">
+                            <span class="btn-text">預約一對一諮詢</span>
+                            <span class="btn-hover-text">Status: Ready to Connect</span>
+                        </a>
+                        <a href="#solutions" class="h-14 px-8 rounded-full border border-slate-200 text-slate-600 font-medium hover:bg-slate-50 hover:text-tech-blue hover:border-tech-blue transition-all flex items-center justify-center w-full sm:w-auto">
+                            了解備考方案
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trust Metrics Grid (Glass Cards) -->
+                <div class="lg:col-span-5 relative z-10 fade-up" style="transition-delay: 600ms;">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-card p-6 rounded-2xl flex flex-col justify-center items-center text-center group">
+                            <div class="text-3xl mb-2 text-tech-blue">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <h3 class="text-3xl font-bold text-slate-800 mb-1 group-hover:text-tech-blue transition-colors">20<span class="text-lg text-slate-500 font-normal">年</span></h3>
+                            <p class="text-sm text-slate-500">上市科技業管理實戰</p>
+                        </div>
+                        
+                        <div class="glass-card p-6 rounded-2xl flex flex-col justify-center items-center text-center group mt-8">
+                            <div class="text-3xl mb-2 text-tech-purple">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+                            </div>
+                            <h3 class="text-3xl font-bold text-slate-800 mb-1 group-hover:text-tech-purple transition-colors">80+<span class="text-lg text-slate-500 font-normal">分</span></h3>
+                            <p class="text-sm text-slate-500">iPAS AI 初/中級高分通過</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl flex flex-col justify-center items-center text-center group -mt-8">
+                            <div class="text-3xl mb-2 text-emerald-500">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-1 mt-2 group-hover:text-emerald-500 transition-colors">Expert</h3>
+                            <p class="text-sm text-slate-500">MOS Excel 國際認證</p>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl flex flex-col justify-center items-center text-center group">
+                            <div class="text-3xl mb-2 text-tech-blue">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-1 mt-2 group-hover:text-tech-blue transition-colors leading-tight">AI × 管理<br>× 數據整合</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sitemap Architecture Section (Requirement #6) -->
+    <section class="py-20 bg-slate-50 border-y border-slate-100 relative overflow-hidden">
+        <div class="bg-grid absolute inset-0 opacity-40"></div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-12 fade-up">
+                <h2 class="text-sm font-bold tracking-widest text-tech-blue uppercase mb-2">Information Architecture</h2>
+                <h3 class="text-2xl font-bold text-slate-800">網站架構總覽</h3>
+            </div>
+            
+            <div class="flex flex-col items-center fade-up">
+                <!-- Root Node -->
+                <div class="glass-card px-6 py-3 rounded-xl border-tech-blue/30 shadow-sm relative tree-line z-10 mb-8 bg-white">
+                    <span class="font-bold text-slate-800">Serena 個人品牌網站</span>
+                </div>
+                
+                <!-- Branches Container -->
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 w-full border-t-2 border-slate-200 pt-8 relative">
+                    <!-- Branch 1 -->
+                    <div class="flex flex-col items-center relative -top-[34px]">
+                        <div class="w-0.5 h-8 bg-slate-200"></div>
+                        <div class="glass-card w-48 p-4 rounded-xl mb-3 shadow-sm bg-white/80 border-t-4 border-tech-blue">
+                            <h4 class="font-bold text-slate-800 text-sm mb-2 text-center">首頁 Hero</h4>
+                            <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside">
+                                <li>品牌主張</li>
+                                <li>打字機主標題</li>
+                                <li>預約諮詢 CTA</li>
+                                <li>AI 科技視覺背景</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Branch 2 -->
+                    <div class="flex flex-col items-center relative -top-[34px]">
+                        <div class="w-0.5 h-8 bg-slate-200"></div>
+                        <div class="glass-card w-48 p-4 rounded-xl mb-3 shadow-sm bg-white/80 border-t-4 border-tech-purple">
+                            <h4 class="font-bold text-slate-800 text-sm mb-2 text-center">關於 Serena</h4>
+                            <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside">
+                                <li>20年科技業管理經驗</li>
+                                <li>iPAS 應用規劃師認證</li>
+                                <li>MOS Excel Expert</li>
+                                <li>AI×管理×數據整合</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Branch 3 -->
+                    <div class="flex flex-col items-center relative -top-[34px]">
+                        <div class="w-0.5 h-8 bg-slate-200"></div>
+                        <div class="glass-card w-48 p-4 rounded-xl mb-3 shadow-sm bg-white/80 border-t-4 border-emerald-500">
+                            <h4 class="font-bold text-slate-800 text-sm mb-2 text-center">AI 備考解決方案</h4>
+                            <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside">
+                                <li>個人化備考策略</li>
+                                <li>考點心智圖</li>
+                                <li>AI 題型分析</li>
+                                <li>錯題弱點攻克</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Branch 4 -->
+                    <div class="flex flex-col items-center relative -top-[34px]">
+                        <div class="w-0.5 h-8 bg-slate-200"></div>
+                        <div class="glass-card w-48 p-4 rounded-xl mb-3 shadow-sm bg-white/80 border-t-4 border-orange-400">
+                            <h4 class="font-bold text-slate-800 text-sm mb-2 text-center">備考流程</h4>
+                            <ul class="text-xs text-slate-500 space-y-1.5 flex flex-wrap gap-1 justify-center">
+                                <li class="bg-slate-100 px-2 py-0.5 rounded">診斷</li>
+                                <li class="bg-slate-100 px-2 py-0.5 rounded">建構</li>
+                                <li class="bg-slate-100 px-2 py-0.5 rounded">內化</li>
+                                <li class="bg-slate-100 px-2 py-0.5 rounded">攻克</li>
+                                <li class="bg-slate-100 px-2 py-0.5 rounded">轉化</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Branch 5 -->
+                    <div class="flex flex-col items-center relative -top-[34px] hidden lg:flex">
+                        <div class="w-0.5 h-8 bg-slate-200"></div>
+                        <div class="glass-card w-48 p-4 rounded-xl mb-3 shadow-sm bg-white/80 border-t-4 border-slate-400">
+                            <h4 class="font-bold text-slate-800 text-sm mb-2 text-center">其他</h4>
+                            <ul class="text-xs text-slate-500 space-y-1.5 list-disc list-inside">
+                                <li>技術觀點 (Blog)</li>
+                                <li>預約諮詢 (CTA)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative bg-white">
+        <div class="absolute right-0 top-0 w-1/3 h-full bg-slate-50 rounded-l-[100px] -z-10 hidden lg:block"></div>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Visual / Abstract Element instead of photo -->
+                <div class="relative fade-up order-2 lg:order-1">
+                    <div class="aspect-square max-w-md mx-auto relative">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-blue-100 to-purple-50 rounded-[40px] rotate-3 opacity-70"></div>
+                        <div class="absolute inset-0 glass rounded-[40px] border border-white p-8 flex flex-col justify-between shadow-xl">
+                            <div class="flex justify-between items-start">
+                                <div class="w-12 h-12 rounded-full bg-tech-blue/10 flex items-center justify-center text-tech-blue">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <span class="bg-emerald-100 text-emerald-700 text-xs font-bold px-3 py-1 rounded-full">Pro Consultant</span>
+                            </div>
+                            <div class="space-y-4">
+                                <h3 class="text-2xl font-bold text-slate-800">Serena</h3>
+                                <p class="text-slate-500 text-sm leading-relaxed">以經驗為基礎，以數據為依據，以 AI 為助力，持續創造更高效、更智慧的工作模式。</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 mt-6 border-t border-slate-100 pt-6">
+                                <div>
+                                    <div class="text-xs text-slate-400 mb-1">Core Capability</div>
+                                    <div class="font-medium text-slate-700 text-sm">企業營運管理<br>流程優化</div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 mb-1">Tech Stack</div>
+                                    <div class="font-medium text-slate-700 text-sm">AI 應用規劃<br>數據整合分析</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Narrative -->
+                <div class="space-y-8 fade-up order-1 lg:order-2">
+                    <div>
+                        <h2 class="text-sm font-bold tracking-widest text-tech-purple uppercase mb-2">About Serena</h2>
+                        <h3 class="text-3xl md:text-4xl font-bold text-slate-800 leading-tight">不僅是懂 AI 的技術人，<br>更是懂管理的破局者。</h3>
+                    </div>
+                    
+                    <div class="space-y-6 text-slate-600 leading-relaxed text-lg">
+                        <p>
+                            Serena 擁有 20 年上市科技公司管理部門實務經驗，長期深耕企業營運管理、流程優化與跨部門協作。在快速變動的科技產業中，她擅長將複雜資訊轉化為可執行、可追蹤、可改善的管理成果。
+                        </p>
+                        <p>
+                            她的專業核心，來自管理現場累積的判斷力，也來自對數位工具的持續進化。取得 <strong class="text-tech-blue font-semibold">iPAS AI 應用規劃師中級與初級認證（全科 80 分以上高分）</strong> 及 <strong class="text-emerald-600 font-semibold">MOS Excel Expert</strong> 認證，代表她不僅理解 AI 技術趨勢，更能從企業需求、資料流程與導入風險等面向，規劃具實務價值的方案。
+                        </p>
+                        <blockquote class="border-l-4 border-tech-purple pl-6 py-2 italic bg-purple-50/50 rounded-r-lg text-slate-700">
+                            「對我而言，工具不是目的，而是讓工作更有效率、讓管理更有依據、讓決策更清楚的關鍵媒介。」
+                        </blockquote>
+                        <p>
+                            她深信未來的專業人才必須同時具備穩定的實務經驗與擁抱新技術的能力。Serena 代表的不只是資歷與證照，更是一種值得信賴的專業態度：協助您在變革中找到清楚方向，讓技術真正落地。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="solutions" class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
+                <h2 class="text-sm font-bold tracking-widest text-tech-blue uppercase mb-2">Premium Solutions</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-800 mb-6">iPAS AI 應用規劃師｜高分備考解決方案</h3>
+                <p class="text-lg text-slate-600">專為零基礎、跨領域學習者設計。不同於傳統單向刷題，本方案協助您先建立完整的 AI 應用知識架構，精準掌握考試邏輯，將備考過程轉化為職場核心競爭力。</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-2xl group fade-up">
+                    <div class="w-14 h-14 rounded-xl bg-blue-100 text-tech-blue flex items-center justify-center mb-6 group-hover:bg-tech-blue group-hover:text-white transition-colors duration-300">
+                        <span class="text-xl font-bold font-mono">01</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3">從 0 到 1 備考策略規劃</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">依據您的背景、時間與理解程度，設計個人化專屬讀書路徑。透過導師級顧問諮詢，快速釐清 AI 基礎概念、資料治理與導入風險。</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-2xl group fade-up" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 rounded-xl bg-purple-100 text-tech-purple flex items-center justify-center mb-6 group-hover:bg-tech-purple group-hover:text-white transition-colors duration-300">
+                        <span class="text-xl font-bold font-mono">02</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3">核心考點心智圖建置</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">進入知識內化階段，協助建立專屬考點心智圖與私有化知識管理系統，將龐雜內容轉化為清楚、可複習、可追蹤的學習資產。</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-2xl group fade-up" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+                        <span class="text-xl font-bold font-mono">03</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3">AI 題型趨勢分析</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">結合 AI 輔助分析能力，以大數據視角拆解歷屆題型與命題趨勢。協助您掌握底層考點脈絡，而非被動死記硬背答案。</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-2xl group fade-up" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center mb-6 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
+                        <span class="text-xl font-bold font-mono">04</span>
+                    </div>
+                    <h4 class="text-xl font-bold text-slate-800 mb-3">錯題歸因與弱點攻克</h4>
+                    <p class="text-slate-600 text-sm leading-relaxed">透過精準的錯題診斷機制，讓每一次練習都能回到核心：「為什麼錯？如何補強？下次如何得分？」建立高效的自我修正迴圈。</p>
+                </div>
+
+                <!-- Card 5 (Spans 2 cols on lg) -->
+                <div class="glass-card p-8 rounded-2xl group fade-up lg:col-span-2 relative overflow-hidden bg-gradient-to-br from-white to-blue-50/50" style="transition-delay: 400ms;">
+                    <div class="absolute right-0 top-0 w-32 h-32 bg-tech-blue/5 rounded-full blur-2xl -mr-10 -mt-10 group-hover:bg-tech-blue/10 transition-colors"></div>
+                    <div class="flex flex-col md:flex-row gap-6 items-center">
+                        <div class="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-tech-blue to-tech-purple text-white flex items-center justify-center shadow-lg">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-800 mb-2">終極價值：職場 AI 應用能力轉化</h4>
+                            <p class="text-slate-600 text-sm leading-relaxed">本方案的核心目標不只是通過考試，而是賦能學員具備「理解 AI、規劃 AI、應用 AI」的實戰思維，讓證照成為您職涯升級、跨界轉型的堅實基石。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Journey Section -->
+    <section id="journey" class="py-24 bg-white relative">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-sm font-bold tracking-widest text-tech-purple uppercase mb-2">Learning Journey</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-800">5 階段系統化備考流程</h3>
+            </div>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-tech-blue via-tech-purple to-emerald-400 opacity-20"></div>
+
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative flex items-start md:justify-between group fade-up">
+                        <div class="absolute left-[27px] md:left-1/2 w-4 h-4 rounded-full bg-white border-4 border-tech-blue transform -translate-x-1/2 mt-1.5 z-10 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(37,99,235,0.5)] transition-all duration-300"></div>
+                        <div class="ml-16 md:ml-0 md:w-[45%] md:text-right pr-4">
+                            <div class="text-sm font-bold text-tech-blue font-mono mb-1">Step 01</div>
+                            <h4 class="text-xl font-bold text-slate-800 mb-2">診斷 Diagnose</h4>
+                            <p class="text-slate-500 text-sm">盤點學員專業背景、可投入時間與目前的知識落差，確立起點。</p>
+                        </div>
+                        <div class="hidden md:block md:w-[45%]"></div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex items-start md:justify-between group fade-up">
+                        <div class="absolute left-[27px] md:left-1/2 w-4 h-4 rounded-full bg-white border-4 border-tech-purple transform -translate-x-1/2 mt-1.5 z-10 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(0,179,136,0.5)] transition-all duration-300"></div>
+                        <div class="hidden md:block md:w-[45%]"></div>
+                        <div class="ml-16 md:ml-0 md:w-[45%] pl-4">
+                            <div class="text-sm font-bold text-tech-purple font-mono mb-1">Step 02</div>
+                            <h4 class="text-xl font-bold text-slate-800 mb-2">建構 Build</h4>
+                            <p class="text-slate-500 text-sm">從底層邏輯出發，建立清晰的 AI 應用知識架構與全域觀。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex items-start md:justify-between group fade-up">
+                        <div class="absolute left-[27px] md:left-1/2 w-4 h-4 rounded-full bg-white border-4 border-tech-blue transform -translate-x-1/2 mt-1.5 z-10 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(0,119,200,0.5)] transition-all duration-300"></div>
+                        <div class="ml-16 md:ml-0 md:w-[45%] md:text-right pr-4">
+                            <div class="text-sm font-bold text-tech-blue font-mono mb-1">Step 03</div>
+                            <h4 class="text-xl font-bold text-slate-800 mb-2">內化 Internalize</h4>
+                            <p class="text-slate-500 text-sm">運用數位工具建立個人專屬的考點心智圖與知識管理系統。</p>
+                        </div>
+                        <div class="hidden md:block md:w-[45%]"></div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex items-start md:justify-between group fade-up">
+                        <div class="absolute left-[27px] md:left-1/2 w-4 h-4 rounded-full bg-white border-4 border-orange-400 transform -translate-x-1/2 mt-1.5 z-10 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(251,146,60,0.5)] transition-all duration-300"></div>
+                        <div class="hidden md:block md:w-[45%]"></div>
+                        <div class="ml-16 md:ml-0 md:w-[45%] pl-4">
+                            <div class="text-sm font-bold text-orange-500 font-mono mb-1">Step 04</div>
+                            <h4 class="text-xl font-bold text-slate-800 mb-2">攻克 Conquer</h4>
+                            <p class="text-slate-500 text-sm">透過 AI 輔助進行錯題歸因分析，精準執行弱點補強與模擬測驗。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative flex items-start md:justify-between group fade-up">
+                        <div class="absolute left-[27px] md:left-1/2 w-4 h-4 rounded-full bg-white border-4 border-emerald-500 transform -translate-x-1/2 mt-1.5 z-10 group-hover:scale-125 group-hover:shadow-[0_0_10px_rgba(0,179,136,0.5)] transition-all duration-300"></div>
+                        <div class="ml-16 md:ml-0 md:w-[45%] md:text-right pr-4">
+                            <div class="text-sm font-bold text-emerald-600 font-mono mb-1">Step 05</div>
+                            <h4 class="text-xl font-bold text-slate-800 mb-2">轉化 Translate</h4>
+                            <p class="text-slate-500 text-sm">超越紙筆測驗，將所學知識真正轉化為解決職場實務問題的 AI 應用力。</p>
+                        </div>
+                        <div class="hidden md:block md:w-[45%]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="py-24 bg-slate-50 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 fade-up">
+                <div>
+                    <h2 class="text-sm font-bold tracking-widest text-tech-blue uppercase mb-2">Consultant Insights</h2>
+                    <h3 class="text-3xl font-bold text-slate-800">專業技術觀點</h3>
+                </div>
+                <div class="mt-4 md:mt-0 text-slate-500 text-sm">
+                    從管理視角出發的 AI 實務筆記
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Blog Card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer fade-up">
+                    <div class="h-40 bg-gradient-to-br from-blue-100 to-white flex items-center justify-center border-b border-slate-100 group-hover:bg-blue-50 transition-colors">
+                        <svg class="w-10 h-10 text-tech-blue/40 group-hover:text-tech-blue transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-bold text-tech-blue mb-2">備考策略</div>
+                        <h4 class="font-bold text-slate-800 mb-2 group-hover:text-tech-blue transition-colors line-clamp-2">零基礎跨領域，如何高效準備 iPAS AI 應用規劃師？</h4>
+                        <p class="text-xs text-slate-500">掌握底層邏輯比死記硬背更重要...</p>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer fade-up" style="transition-delay: 100ms;">
+                    <div class="h-40 bg-gradient-to-br from-purple-100 to-white flex items-center justify-center border-b border-slate-100 group-hover:bg-purple-50 transition-colors">
+                        <svg class="w-10 h-10 text-tech-purple/40 group-hover:text-tech-purple transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-bold text-tech-purple mb-2">AI 應用</div>
+                        <h4 class="font-bold text-slate-800 mb-2 group-hover:text-tech-purple transition-colors line-clamp-2">不是只考技術！解析考題中的「場景判斷」核心</h4>
+                        <p class="text-xs text-slate-500">從企業真實需求看 AI 落地價值...</p>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer fade-up" style="transition-delay: 200ms;">
+                    <div class="h-40 bg-gradient-to-br from-emerald-100 to-white flex items-center justify-center border-b border-slate-100 group-hover:bg-emerald-50 transition-colors">
+                        <svg class="w-10 h-10 text-emerald-500/40 group-hover:text-emerald-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-bold text-emerald-600 mb-2">數據管理</div>
+                        <h4 class="font-bold text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors line-clamp-2">如何用 Excel 與 AI 建立無堅不摧的備考知識庫？</h4>
+                        <p class="text-xs text-slate-500">將龐雜資料轉化為結構化資產...</p>
+                    </div>
+                </div>
+
+                <!-- Blog Card 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden group cursor-pointer fade-up" style="transition-delay: 300ms;">
+                    <div class="h-40 bg-gradient-to-br from-orange-100 to-white flex items-center justify-center border-b border-slate-100 group-hover:bg-orange-50 transition-colors">
+                        <svg class="w-10 h-10 text-orange-400/40 group-hover:text-orange-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-bold text-orange-500 mb-2">職場轉型</div>
+                        <h4 class="font-bold text-slate-800 mb-2 group-hover:text-orange-500 transition-colors line-clamp-2">從企業管理角度看：AI 導入的隱形成本與風險防範</h4>
+                        <p class="text-xs text-slate-500">技術落地前必須釐清的管理盲區...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Solutions Section -->
+    <section class="py-24 bg-slate-50 relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="text-sm font-semibold uppercase tracking-[0.24em] text-tech-blue mb-3">核心產品與技術解決方案</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">讓 AI 備考更有方向、更有架構</h2>
+                <p class="mt-4 text-slate-600 max-w-2xl mx-auto">
+                    結合系統化策略、知識管理與錯題分析，打造符合零基礎考生的高效備考方案。
+                </p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+                <div class="glass-card rounded-3xl p-8 border border-slate-200 hover:border-tech-blue transition-all">
+                    <div class="flex items-center justify-center w-14 h-14 rounded-2xl bg-tech-blue/10 text-tech-blue mb-6">
+                        <i class="fa-solid fa-brain text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">AI 備考策略規劃系統 🎯</h3>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-blue text-lg mt-0.5">📚</span>
+                            <span>完整備考架構：觀念建構 → 讀書路徑 → 考點分層 → 複習節奏</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-blue text-lg mt-0.5">🧠</span>
+                            <span>零基礎友善：適合跨領域、時間有限的考生</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-blue text-lg mt-0.5">📈</span>
+                            <span>科學提升：有方向、有架構、有節奏的穩定進步</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-3xl p-8 border border-slate-200 hover:border-tech-purple transition-all">
+                    <div class="flex items-center justify-center w-14 h-14 rounded-2xl bg-tech-purple/10 text-tech-purple mb-6">
+                        <i class="fa-solid fa-layer-group text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">核心考點知識管理方案 🗂️</h3>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-purple text-lg mt-0.5">🧭</span>
+                            <span>心智圖系統：將龐雜考試範圍視覺化整理</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-purple text-lg mt-0.5">💡</span>
+                            <span>知識模組庫：AI 概念、應用情境、導入流程、風險管理一應俱全</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-purple text-lg mt-0.5">⚙️</span>
+                            <span>可追蹤管理：建立個人化高效複習系統</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-3xl p-8 border border-slate-200 hover:border-tech-mint transition-all">
+                    <div class="flex items-center justify-center w-14 h-14 rounded-2xl bg-tech-mint/10 text-tech-mint mb-6">
+                        <i class="fa-solid fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">AI 題型分析與錯題攻克技術 ⚡</h3>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-mint text-lg mt-0.5">🔍</span>
+                            <span>AI 辨識：分析歷屆題型、命題脈絡與高頻考點</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-mint text-lg mt-0.5">🎯</span>
+                            <span>精準補強：錯題分類 → 個人化策略 → 實戰練習</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-tech-mint text-lg mt-0.5">💪</span>
+                            <span>能力躍升：從被動刷題到精準練習，大幅提升得分能力</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social & Community Section -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">加入社群，掌握最新資訊</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto">追蹤 Serena 多平台帳號，獲得即時的備考資訊、AI 應用洞察與職場發展建議。</p>
+            </div>
+            
+            <div class="flex justify-center items-center gap-8 flex-wrap">
+                <!-- LINE -->
+                <a href="https://aistudy.pse.is/linemdsgroup" target="_blank" rel="noopener noreferrer" 
+                   class="group flex flex-col items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-green-50 to-green-100 hover:shadow-lg transition-all hover:scale-110 border border-green-200">
+                    <i class="fa-brands fa-line text-4xl text-green-600 mb-2"></i>
+                    <span class="text-xs font-semibold text-green-700">LINE</span>
+                </a>
+                
+                <!-- Facebook -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="group flex flex-col items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-lg transition-all hover:scale-110 border border-blue-200">
+                    <i class="fa-brands fa-facebook text-4xl text-blue-600 mb-2"></i>
+                    <span class="text-xs font-semibold text-blue-700">Facebook</span>
+                </a>
+                
+                <!-- LinkedIn -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="group flex flex-col items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-100 hover:shadow-lg transition-all hover:scale-110 border border-sky-200">
+                    <i class="fa-brands fa-linkedin text-4xl text-sky-600 mb-2"></i>
+                    <span class="text-xs font-semibold text-sky-700">LinkedIn</span>
+                </a>
+                
+                <!-- GitHub -->
+                <a href="#" target="_blank" rel="noopener noreferrer" 
+                   class="group flex flex-col items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 hover:shadow-lg transition-all hover:scale-110 border border-slate-300">
+                    <i class="fa-brands fa-github text-4xl text-slate-800 mb-2"></i>
+                    <span class="text-xs font-semibold text-slate-700">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-24 bg-slate-50 relative border-t border-slate-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="glass-card rounded-3xl p-12 border border-slate-200">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-tech-blue/10 text-tech-blue mb-6">
+                            <i class="fa-solid fa-envelope text-2xl"></i>
+                        </div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">準備好優化您的備考策略？</h2>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            填寫需求表單，讓 Serena 了解您的考試目標、目前進度與挑戰。我們將依據您的情況，提供客製化的備考方案建議。
+                        </p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3">
+                                <span class="text-tech-blue text-lg">✓</span>
+                                <span class="text-slate-700">完全免費的需求評估</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-tech-blue text-lg">✓</span>
+                                <span class="text-slate-700">客製化備考方案建議</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-tech-blue text-lg">✓</span>
+                                <span class="text-slate-700">24 小時內回復確認</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex flex-col items-center justify-center">
+                        <div class="mb-8 text-center">
+                            <div class="text-6xl mb-4">📋</div>
+                            <p class="text-slate-600 font-medium">只需 5 分鐘填寫</p>
+                        </div>
+                        <a href="https://forms.gle/Z7SdTJtuUGUZTcpB8" target="_blank" rel="noopener noreferrer" 
+                           class="w-full py-4 px-6 bg-gradient-to-r from-tech-blue to-tech-purple text-white rounded-2xl font-bold text-lg hover:shadow-[0_15px_30px_rgba(0,119,200,0.3)] transition-all hover:scale-105 text-center flex items-center justify-center gap-2">
+                            <span>填寫需求表單</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <p class="text-xs text-slate-500 mt-4 text-center">無需登入，完全保護您的隱私</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 relative overflow-hidden bg-white">
+        <!-- Abstract Bg -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50 -z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-tech-blue/10 to-tech-purple/10 rounded-full blur-[80px] -z-10"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 text-center fade-up relative z-10">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-md text-tech-blue mb-8">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6">準備好啟動您的 AI 備考計畫了嗎？</h2>
+            <p class="text-lg text-slate-600 mb-10 max-w-2xl mx-auto">
+                不要讓複雜的技術名詞成為阻礙。讓我們透過結構化的方法，拆解考試、建立邏輯，一步步將您推向 iPAS 認證高分與未來的職場競爭力。
+            </p>
+            <a href="https://calendar.app.google/kVba3a9iryVbvhD77" target="_blank" rel="noopener noreferrer" class="btn-premium h-16 px-10 text-xl shadow-[0_15px_30px_rgba(0,119,200,0.15)] hover:shadow-none transition-all">
+                <span class="btn-text">立即預約 Serena 一對一諮詢</span>
+                <span class="btn-hover-text text-lg">Status: Ready to Connect</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-tech-blue to-tech-purple flex items-center justify-center text-white font-bold text-lg">S</div>
+                <div>
+                    <div class="font-bold text-slate-800">Serena</div>
+                    <div class="text-xs text-slate-500">AI 應用規劃師備考顧問 × 企業管理專家</div>
+                </div>
+            </div>
+            
+            <div class="text-sm text-slate-500 text-center md:text-right">
+                <p>以經驗為基礎，以數據為依據，以 AI 為助力。</p>
+                <p class="mt-1 opacity-70">&copy; <span id="year"></span> Serena Personal Brand. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set Year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
+
+            // Navbar background on scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('py-2');
+                    navbar.classList.remove('pt-4');
+                } else {
+                    navbar.classList.add('pt-4');
+                    navbar.classList.remove('py-2');
+                }
+            });
+
+            // Smooth Scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Typewriter Effect (Refined)
+            const text = "從零基礎到高分通過：\n用 AI 打造你的 iPAS 應用規劃師\n備考勝利路徑";
+            const typeTextElement = document.getElementById('typewriter-text');
+            let index = 0;
+            
+            function typeWriter() {
+                if (index < text.length) {
+                    if (text.charAt(index) === '\n') {
+                        typeTextElement.innerHTML += '<br class="hidden md:block">';
+                    } else {
+                        typeTextElement.innerHTML += text.charAt(index);
+                    }
+                    index++;
+                    // Randomize typing speed slightly for natural feel
+                    setTimeout(typeWriter, Math.random() * 50 + 50); 
+                }
+            }
+            // Start typing shortly after load
+            setTimeout(typeWriter, 500);
+
+            // Intersection Observer for Fade-Up Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Canvas Background Animation (White Cyber Tech / Clean Futurism)
+            const canvas = document.getElementById('techCanvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.3; // Very slow movement
+                    this.vy = (Math.random() - 0.5) * 0.3;
+                    this.radius = Math.random() * 1.5 + 0.5;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    // Wrap around
+                    if (this.x < 0) this.x = width;
+                    if (this.x > width) this.x = 0;
+                    if (this.y < 0) this.y = height;
+                    if (this.y > height) this.y = 0;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    // Light tech blue/gray color
+                    ctx.fillStyle = 'rgba(100, 149, 237, 0.4)'; 
+                    ctx.fill();
+                }
+            }
+
+            // Create fewer particles for a cleaner look
+            const particleCount = Math.min(Math.floor(window.innerWidth / 20), 60); 
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animateCanvas() {
+                ctx.clearRect(0, 0, width, height);
+                
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
+                // Connect nearby particles with subtle lines (Data flow concept)
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 150) {
+                            ctx.beginPath();
+                            // Line opacity based on distance
+                            const opacity = (1 - dist / 150) * 0.15; 
+                            ctx.strokeStyle = `rgba(37, 99, 235, ${opacity})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animateCanvas);
+            }
+            animateCanvas();
+        });
+    </script>
+</body>
+</html>
